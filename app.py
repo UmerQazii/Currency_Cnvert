@@ -1,40 +1,4 @@
-#Import required modules in your Python script:
-
-import streamlit as st
-import pandas as pd
-import requests
-import sqlite3
-
-#2. Create a Database (SQLite)
-
-def init_db():
-    conn = sqlite3.connect('currency.db')
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS currency_rates
-                 (currency TEXT PRIMARY KEY, rate REAL)''')
-    conn.commit()
-    conn.close()
-
-def insert_currency_rate(currency, rate):
-    conn = sqlite3.connect('currency.db')
-    c = conn.cursor()
-    c.execute("INSERT OR REPLACE INTO currency_rates (currency, rate) VALUES (?, ?)", (currency, rate))
-    conn.commit()
-    conn.close()
-
-"""3. Fetch Currency Rates
-You can use an API like exchangerate-api to get live currency rates and store them in your database.
-Example function to fetch and store rates"""
-
-def fetch_currency_rates():
-    api_url = "https://api.exchangerate-api.com/v4/latest/USD"
-    response = requests.get(api_url)
-    data = response.json()
-    rates = data['rates']
-    
-    for currency, rate in rates.items():
-        insert_currency_rate(currency, rate)
-
+#Im
 ###4. Create Streamlit App Interface
     
 def currency_converter():
