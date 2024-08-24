@@ -68,4 +68,3 @@ def currency_converter():
         converted_amount = (to_rate / from_rate) * amount
         st.success(f"{amount} {from_currency} is equal to {converted_amount} {to_currency}")
 
-streamlit run app.py
