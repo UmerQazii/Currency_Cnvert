@@ -22,9 +22,7 @@ def insert_currency_rate(currency, rate):
     conn.commit()
     conn.close()
 
-"""3. Fetch Currency Rates
-You can use an API like exchangerate-api to get live currency rates and store them in your database.
-Example function to fetch and store rates"""
+
 
 def fetch_currency_rates():
     api_url = "https://api.exchangerate-api.com/v4/latest/USD"
